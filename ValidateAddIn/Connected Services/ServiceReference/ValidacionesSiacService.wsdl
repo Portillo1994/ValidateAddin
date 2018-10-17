@@ -18,11 +18,11 @@
   <wsdl:message name="ObtieneBitacoraReporteRequest">
     <wsdl:part name="parameters" element="tns:ObtieneBitacoraReporteRequest" />
   </wsdl:message>
-  <wsdl:message name="GetJournalValidationRequest">
-    <wsdl:part name="parameters" element="tns:GetJournalValidationRequest" />
+  <wsdl:message name="VoucherInformationRequest">
+    <wsdl:part name="parameters" element="tns:VoucherInformationRequest" />
   </wsdl:message>
-  <wsdl:message name="GetJournalValidationResponse">
-    <wsdl:part name="parameters" element="tns:GetJournalValidationResponse" />
+  <wsdl:message name="VoucherInformationResponse">
+    <wsdl:part name="parameters" element="tns:VoucherInformationResponse" />
   </wsdl:message>
   <wsdl:portType name="ValidacionesSiacServiceContract">
     <wsdl:operation name="ObtieneBitacora">
@@ -37,9 +37,9 @@
       <wsdl:input wsaw:Action="ObtieneBitacoraCargaReporte" name="ObtieneBitacoraReporteRequest" message="tns:ObtieneBitacoraReporteRequest" />
       <wsdl:output wsaw:Action="http://abaseguros.com/ValidacionesSiacServiceContract/ObtieneBitacoraCargaReporteResponse" name="ObtieneBitacoraResponse" message="tns:ObtieneBitacoraResponse" />
     </wsdl:operation>
-    <wsdl:operation name="GetJournalValidation">
-      <wsdl:input wsaw:Action="AccountingInformation" name="GetJournalValidationRequest" message="tns:GetJournalValidationRequest" />
-      <wsdl:output wsaw:Action="http://abaseguros.com/ValidacionesSiacServiceContract/GetJournalValidationResponse" name="GetJournalValidationResponse" message="tns:GetJournalValidationResponse" />
+    <wsdl:operation name="GetVoucherValidation">
+      <wsdl:input wsaw:Action="AccountingInformation" name="VoucherInformationRequest" message="tns:VoucherInformationRequest" />
+      <wsdl:output wsaw:Action="http://abaseguros.com/ValidacionesSiacServiceContract/GetVoucherValidationResponse" name="VoucherInformationResponse" message="tns:VoucherInformationResponse" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ValidacionSiacEndpoint" type="tns:ValidacionesSiacServiceContract">
@@ -71,12 +71,12 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetJournalValidation">
+    <wsdl:operation name="GetVoucherValidation">
       <soap:operation soapAction="AccountingInformation" style="document" />
-      <wsdl:input name="GetJournalValidationRequest">
+      <wsdl:input name="VoucherInformationRequest">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="GetJournalValidationResponse">
+      <wsdl:output name="VoucherInformationResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

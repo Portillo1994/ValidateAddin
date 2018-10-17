@@ -224,9 +224,9 @@ namespace ValidateAddIn.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GetJournalValidationDC", Namespace="http://abaseguros.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VoucherInformation", Namespace="http://abaseguros.com")]
     [System.SerializableAttribute()]
-    public partial class GetJournalValidationDC : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class VoucherInformation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -767,9 +767,9 @@ namespace ValidateAddIn.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="GetJournalValidationCollectionDC", Namespace="http://abaseguros.com", ItemName="ErrorDC")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ErrorCollection", Namespace="http://abaseguros.com", ItemName="ErrorDC")]
     [System.SerializableAttribute()]
-    public class GetJournalValidationCollectionDC : System.Collections.Generic.List<ValidateAddIn.ServiceReference.ErrorDC> {
+    public class ErrorCollection : System.Collections.Generic.List<ValidateAddIn.ServiceReference.ErrorDC> {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -890,14 +890,14 @@ namespace ValidateAddIn.ServiceReference {
             "Response")]
         System.Threading.Tasks.Task<ValidateAddIn.ServiceReference.ObtieneBitacoraResponse> ObtieneBitacoraCargaReporteAsync(ValidateAddIn.ServiceReference.ObtieneBitacoraReporteRequest request);
         
-        // CODEGEN: Generating message contract since the wrapper name (GetJournalValidationRequest) of message GetJournalValidationRequest does not match the default value (GetJournalValidation)
-        [System.ServiceModel.OperationContractAttribute(Action="AccountingInformation", ReplyAction="http://abaseguros.com/ValidacionesSiacServiceContract/GetJournalValidationRespons" +
+        // CODEGEN: Generating message contract since the wrapper name (VoucherInformationRequest) of message VoucherInformationRequest does not match the default value (GetVoucherValidation)
+        [System.ServiceModel.OperationContractAttribute(Action="AccountingInformation", ReplyAction="http://abaseguros.com/ValidacionesSiacServiceContract/GetVoucherValidationRespons" +
             "e")]
-        ValidateAddIn.ServiceReference.GetJournalValidationResponse GetJournalValidation(ValidateAddIn.ServiceReference.GetJournalValidationRequest request);
+        ValidateAddIn.ServiceReference.VoucherInformationResponse GetVoucherValidation(ValidateAddIn.ServiceReference.VoucherInformationRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="AccountingInformation", ReplyAction="http://abaseguros.com/ValidacionesSiacServiceContract/GetJournalValidationRespons" +
+        [System.ServiceModel.OperationContractAttribute(Action="AccountingInformation", ReplyAction="http://abaseguros.com/ValidacionesSiacServiceContract/GetVoucherValidationRespons" +
             "e")]
-        System.Threading.Tasks.Task<ValidateAddIn.ServiceReference.GetJournalValidationResponse> GetJournalValidationAsync(ValidateAddIn.ServiceReference.GetJournalValidationRequest request);
+        System.Threading.Tasks.Task<ValidateAddIn.ServiceReference.VoucherInformationResponse> GetVoucherValidationAsync(ValidateAddIn.ServiceReference.VoucherInformationRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -991,16 +991,16 @@ namespace ValidateAddIn.ServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetJournalValidationRequest", WrapperNamespace="http://abaseguros.com", IsWrapped=true)]
-    public partial class GetJournalValidationRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="VoucherInformationRequest", WrapperNamespace="http://abaseguros.com", IsWrapped=true)]
+    public partial class VoucherInformationRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://abaseguros.com", Order=0)]
-        public ValidateAddIn.ServiceReference.GetJournalValidationDC AccountingInformation;
+        public ValidateAddIn.ServiceReference.VoucherInformation AccountingInformation;
         
-        public GetJournalValidationRequest() {
+        public VoucherInformationRequest() {
         }
         
-        public GetJournalValidationRequest(ValidateAddIn.ServiceReference.GetJournalValidationDC AccountingInformation) {
+        public VoucherInformationRequest(ValidateAddIn.ServiceReference.VoucherInformation AccountingInformation) {
             this.AccountingInformation = AccountingInformation;
         }
     }
@@ -1008,17 +1008,17 @@ namespace ValidateAddIn.ServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetJournalValidationResponse", WrapperNamespace="http://abaseguros.com", IsWrapped=true)]
-    public partial class GetJournalValidationResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="VoucherInformationResponse", WrapperNamespace="http://abaseguros.com", IsWrapped=true)]
+    public partial class VoucherInformationResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://abaseguros.com", Order=0)]
-        public ValidateAddIn.ServiceReference.GetJournalValidationCollectionDC GetJournalValidation;
+        public ValidateAddIn.ServiceReference.ErrorCollection Error;
         
-        public GetJournalValidationResponse() {
+        public VoucherInformationResponse() {
         }
         
-        public GetJournalValidationResponse(ValidateAddIn.ServiceReference.GetJournalValidationCollectionDC GetJournalValidation) {
-            this.GetJournalValidation = GetJournalValidation;
+        public VoucherInformationResponse(ValidateAddIn.ServiceReference.ErrorCollection Error) {
+            this.Error = Error;
         }
     }
     
@@ -1131,26 +1131,26 @@ namespace ValidateAddIn.ServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ValidateAddIn.ServiceReference.GetJournalValidationResponse ValidateAddIn.ServiceReference.ValidacionesSiacServiceContract.GetJournalValidation(ValidateAddIn.ServiceReference.GetJournalValidationRequest request) {
-            return base.Channel.GetJournalValidation(request);
+        ValidateAddIn.ServiceReference.VoucherInformationResponse ValidateAddIn.ServiceReference.ValidacionesSiacServiceContract.GetVoucherValidation(ValidateAddIn.ServiceReference.VoucherInformationRequest request) {
+            return base.Channel.GetVoucherValidation(request);
         }
         
-        public ValidateAddIn.ServiceReference.GetJournalValidationCollectionDC GetJournalValidation(ValidateAddIn.ServiceReference.GetJournalValidationDC AccountingInformation) {
-            ValidateAddIn.ServiceReference.GetJournalValidationRequest inValue = new ValidateAddIn.ServiceReference.GetJournalValidationRequest();
+        public ValidateAddIn.ServiceReference.ErrorCollection GetVoucherValidation(ValidateAddIn.ServiceReference.VoucherInformation AccountingInformation) {
+            ValidateAddIn.ServiceReference.VoucherInformationRequest inValue = new ValidateAddIn.ServiceReference.VoucherInformationRequest();
             inValue.AccountingInformation = AccountingInformation;
-            ValidateAddIn.ServiceReference.GetJournalValidationResponse retVal = ((ValidateAddIn.ServiceReference.ValidacionesSiacServiceContract)(this)).GetJournalValidation(inValue);
-            return retVal.GetJournalValidation;
+            ValidateAddIn.ServiceReference.VoucherInformationResponse retVal = ((ValidateAddIn.ServiceReference.ValidacionesSiacServiceContract)(this)).GetVoucherValidation(inValue);
+            return retVal.Error;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ValidateAddIn.ServiceReference.GetJournalValidationResponse> ValidateAddIn.ServiceReference.ValidacionesSiacServiceContract.GetJournalValidationAsync(ValidateAddIn.ServiceReference.GetJournalValidationRequest request) {
-            return base.Channel.GetJournalValidationAsync(request);
+        System.Threading.Tasks.Task<ValidateAddIn.ServiceReference.VoucherInformationResponse> ValidateAddIn.ServiceReference.ValidacionesSiacServiceContract.GetVoucherValidationAsync(ValidateAddIn.ServiceReference.VoucherInformationRequest request) {
+            return base.Channel.GetVoucherValidationAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ValidateAddIn.ServiceReference.GetJournalValidationResponse> GetJournalValidationAsync(ValidateAddIn.ServiceReference.GetJournalValidationDC AccountingInformation) {
-            ValidateAddIn.ServiceReference.GetJournalValidationRequest inValue = new ValidateAddIn.ServiceReference.GetJournalValidationRequest();
+        public System.Threading.Tasks.Task<ValidateAddIn.ServiceReference.VoucherInformationResponse> GetVoucherValidationAsync(ValidateAddIn.ServiceReference.VoucherInformation AccountingInformation) {
+            ValidateAddIn.ServiceReference.VoucherInformationRequest inValue = new ValidateAddIn.ServiceReference.VoucherInformationRequest();
             inValue.AccountingInformation = AccountingInformation;
-            return ((ValidateAddIn.ServiceReference.ValidacionesSiacServiceContract)(this)).GetJournalValidationAsync(inValue);
+            return ((ValidateAddIn.ServiceReference.ValidacionesSiacServiceContract)(this)).GetVoucherValidationAsync(inValue);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace ValidateAddIn.Class
     public class ErrorLog
     {
         [XmlElement("Error")]
-        public List<Error> ErrorList { get; set; }
+        public IEnumerable<Error> ErrorList { get; set; }
 
     }
 

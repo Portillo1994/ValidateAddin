@@ -166,7 +166,6 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="Class\JournalObj.cs" />
     <Compile Include="Class\ErrorLog.cs" />
     <Compile Include="Connected Services\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -203,10 +202,7 @@
     <None Include="Connected Services\ServiceReference\ValidacionesSiacServiceReference1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference\ValidateAddIn.ServiceReference.GetJournalValidationCollectionDC.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceReference\ValidateAddIn.ServiceReference.GetJournalValidationResponse.datasource">
+    <None Include="Connected Services\ServiceReference\ValidateAddIn.ServiceReference.ErrorCollection.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference\ValidateAddIn.ServiceReference.ObtieneBitacoraCollectionDC.datasource">
@@ -216,6 +212,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference\ValidateAddIn.ServiceReference.ObtieneBitacoraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference\ValidateAddIn.ServiceReference.VoucherInformationResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">

@@ -58,20 +58,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetJournalValidationRequest">
+  <xs:element name="VoucherInformationRequest">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AccountingInformation" nillable="true" type="tns:GetJournalValidationDC" />
+        <xs:element minOccurs="0" name="AccountingInformation" nillable="true" type="tns:VoucherInformation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:complexType name="GetJournalValidationDC">
+  <xs:complexType name="VoucherInformation">
     <xs:sequence>
       <xs:element name="Header" nillable="true" type="tns:Header" />
       <xs:element minOccurs="0" name="AccountingDetail" nillable="true" type="tns:ArrayOfDetail" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="GetJournalValidationDC" nillable="true" type="tns:GetJournalValidationDC" />
+  <xs:element name="VoucherInformation" nillable="true" type="tns:VoucherInformation" />
   <xs:complexType name="Header">
     <xs:sequence>
       <xs:element name="AccountingDate" type="xs:dateTime" />
@@ -115,19 +115,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Detail" nillable="true" type="tns:Detail" />
-  <xs:element name="GetJournalValidationResponse">
+  <xs:element name="VoucherInformationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetJournalValidation" nillable="true" type="tns:GetJournalValidationCollectionDC" />
+        <xs:element minOccurs="0" name="Error" nillable="true" type="tns:ErrorCollection" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:complexType name="GetJournalValidationCollectionDC">
+  <xs:complexType name="ErrorCollection">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorDC" nillable="true" type="tns:ErrorDC" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="GetJournalValidationCollectionDC" nillable="true" type="tns:GetJournalValidationCollectionDC" />
+  <xs:element name="ErrorCollection" nillable="true" type="tns:ErrorCollection" />
   <xs:complexType name="ErrorDC">
     <xs:sequence>
       <xs:element name="ProcessId" type="xs:int" />

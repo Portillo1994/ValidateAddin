@@ -173,35 +173,35 @@ namespace ValidateAddIn
         /// <summary>
         /// Returns ErrorLog Object from web service result
         /// </summary>
-        /// <param name="journalObjectXml">Journal Object created</param>
+        /// <param name="voucherInformation">Voucher Information Object created</param>
         /// <returns>ErrorLog object</returns>
         // ReSharper disable once UnusedParameter.Local
-        private static ErrorLog CreateErrorLog(GetJournalValidationDC journalObjectXml)
+        private static ErrorLog CreateErrorLog(VoucherInformation voucherInformation)
         {
             try
             {
                 var result = new ErrorLog();
 
-                var listErrors = new List<Error>();
+                var errors = new List<Error>();
 
                 var client = new ValidacionesSiacServiceContractClient();
 
-                var obGetJournalValidationCollectionDc = client.GetJournalValidation(journalObjectXml);
+                var errorCollection = client.GetVoucherValidation(voucherInformation);
 
-                foreach (var item in obGetJournalValidationCollectionDc)
+                foreach (var error in errorCollection)
                 {
                     var addError = new Error
                     {
-                        ErrorDescription = item.ErrorDescription,
-                        ProcessId = item.ProcessId,
-                        RecordId = item.RecordId,
-                        ValidationId = item.ValidationId
+                        ErrorDescription = error.ErrorDescription,
+                        ProcessId = error.ProcessId,
+                        RecordId = error.RecordId,
+                        ValidationId = error.ValidationId
                     };
 
-                    listErrors.Add(addError);
+                    errors.Add(addError);
                 }
 
-                result.ErrorList = listErrors;
+                result.ErrorList = errors;
 
                 ActionName = ("Creating error log...");
                 backgroundWorker1.ReportProgress(43);
@@ -230,9 +230,9 @@ namespace ValidateAddIn
 
                 var rn = ws.UsedRange;
 
-                var journalObjectXml = CreateJournalXml(ref rn);
+                var voucherInformation = CreateVoucherInformationXml(ref rn);
 
-                var result = CreateErrorLog(journalObjectXml);
+                var result = CreateErrorLog(voucherInformation);
 
                 ProcessErrorInformation(result);
 
@@ -338,15 +338,15 @@ namespace ValidateAddIn
         }
 
         /// <summary>
-        /// Create the journal object and serialize to XML 
+        /// Create the voucher information object and serialize to XML 
         /// </summary>
         /// <param name="rn">Used range</param>
-        /// <returns>Journal serialize to XML</returns>
-        private static GetJournalValidationDC CreateJournalXml(ref Range rn)
+        /// <returns>Voucher serialize to XML</returns>
+        private static VoucherInformation CreateVoucherInformationXml(ref Range rn)
         {
             try
             {
-                var journal = new GetJournalValidationDC();
+                var voucherInformation = new VoucherInformation();
                 var detailList = new List<Detail>();
                 var header = new Header
                 {
@@ -357,11 +357,11 @@ namespace ValidateAddIn
                     RecordType = "PS"
                 };
 
-                journal.Header = header;
+                voucherInformation.Header = header;
 
                 for (var row = 6; row <= rn.Rows.Count; row++)
                 {
-                    var journalDetail = new Detail()
+                    var voucherInformationDetail = new Detail()
 
                     {
                         RegisterId = Convert.ToInt32(rn[row, 3].Value),
@@ -385,19 +385,19 @@ namespace ValidateAddIn
                         LineDescription = Convert.ToString(rn[row, 28].Value)
                     };
 
-                    if (journalDetail.PsAccount != null)
+                    if (voucherInformationDetail.PsAccount != null)
                     {
-                        detailList.Add(journalDetail);
+                        detailList.Add(voucherInformationDetail);
                     }
 
                 }
 
-                journal.AccountingDetail = detailList.ToArray();
-                journal.Header.RegisterCount = detailList.Count;
+                voucherInformation.AccountingDetail = detailList.ToArray();
+                voucherInformation.Header.RegisterCount = detailList.Count;
 
-                ActionName = "Creating journal XML...";
+                ActionName = "Creating voucher XML...";
                 backgroundWorker1.ReportProgress(20);
-                return journal;
+                return voucherInformation;
             }
             catch (Exception e)
             {
