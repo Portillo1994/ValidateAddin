@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://abaseguros.com" elementFormDefault="qualified" targetNamespace="http://abaseguros.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ObtieneBitacoraRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Request_BU_Sistema_Plaza_FechaVal" nillable="true" type="tns:Request_BU_Sistema_Plaza_FechaValDC" />
+        <xs:element minOccurs="0" name="idTipoValidacion" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Request_BU_Sistema_Plaza_FechaValDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessUnit" type="xs:int" />
+      <xs:element minOccurs="0" name="idSistema" type="xs:int" />
+      <xs:element minOccurs="0" name="idPlaza" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaValidacion" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Request_BU_Sistema_Plaza_FechaValDC" nillable="true" type="tns:Request_BU_Sistema_Plaza_FechaValDC" />
+  <xs:element name="ObtieneBitacoraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtieneBitacora" nillable="true" type="tns:ObtieneBitacoraCollectionDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ObtieneBitacoraCollectionDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObtieneBitacoraDC" nillable="true" type="tns:ObtieneBitacoraDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObtieneBitacoraCollectionDC" nillable="true" type="tns:ObtieneBitacoraCollectionDC" />
+  <xs:complexType name="ObtieneBitacoraDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idMensaje" type="xs:double" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idValidacion" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObtieneBitacoraDC" nillable="true" type="tns:ObtieneBitacoraDC" />
+  <xs:element name="ObtieneBitacoraHistorialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtieneBitacora" nillable="true" type="tns:ObtieneBitacoraCollectionDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneBitacoraReporteRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BusinessUnit" type="xs:int" />
+        <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="TipoArchivo" type="xs:int" />
+        <xs:element minOccurs="0" name="TipoValidacion" type="xs:int" />
+        <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJournalValidationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccountingInformation" nillable="true" type="tns:GetJournalValidationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetJournalValidationDC">
+    <xs:sequence>
+      <xs:element name="Header" nillable="true" type="tns:Header" />
+      <xs:element minOccurs="0" name="AccountingDetail" nillable="true" type="tns:ArrayOfDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetJournalValidationDC" nillable="true" type="tns:GetJournalValidationDC" />
+  <xs:complexType name="Header">
+    <xs:sequence>
+      <xs:element name="AccountingDate" type="xs:dateTime" />
+      <xs:element name="SourceSystemId" type="xs:int" />
+      <xs:element minOccurs="0" name="Branch" type="xs:int" />
+      <xs:element name="BusinessUnit" type="xs:int" />
+      <xs:element name="RecordType" nillable="true" type="xs:string" />
+      <xs:element name="RegisterCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Header" nillable="true" type="tns:Header" />
+  <xs:complexType name="ArrayOfDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Detail" nillable="true" type="tns:Detail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetail" nillable="true" type="tns:ArrayOfDetail" />
+  <xs:complexType name="Detail">
+    <xs:sequence>
+      <xs:element name="RegisterId" type="xs:int" />
+      <xs:element minOccurs="0" name="Ledger" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatingUnit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mcc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Function" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Affiliate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DistributionChannel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JrnlLnRef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PoliceYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MonetaryAmount" nillable="true" type="xs:decimal" />
+      <xs:element name="TransactionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AltAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PsAccount" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Detail" nillable="true" type="tns:Detail" />
+  <xs:element name="GetJournalValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetJournalValidation" nillable="true" type="tns:GetJournalValidationCollectionDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetJournalValidationCollectionDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorDC" nillable="true" type="tns:ErrorDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetJournalValidationCollectionDC" nillable="true" type="tns:GetJournalValidationCollectionDC" />
+  <xs:complexType name="ErrorDC">
+    <xs:sequence>
+      <xs:element name="ProcessId" type="xs:int" />
+      <xs:element name="ErrorDescription" nillable="true" type="xs:string" />
+      <xs:element name="RecordId" type="xs:int" />
+      <xs:element name="ValidationId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorDC" nillable="true" type="tns:ErrorDC" />
+</xs:schema>

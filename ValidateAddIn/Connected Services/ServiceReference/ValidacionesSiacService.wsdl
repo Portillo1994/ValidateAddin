@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://abaseguros.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ValidacionesSiacService" targetNamespace="http://abaseguros.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://abaseguros.com/Imports">
+      <xsd:import schemaLocation="http://localhost:51773/ValidacionesSiacServiceReference.svc?xsd=xsd0" namespace="http://abaseguros.com" />
+      <xsd:import schemaLocation="http://localhost:51773/ValidacionesSiacServiceReference.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtieneBitacoraRequest">
+    <wsdl:part name="parameters" element="tns:ObtieneBitacoraRequest" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneBitacoraResponse">
+    <wsdl:part name="parameters" element="tns:ObtieneBitacoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneBitacoraHistorialResponse">
+    <wsdl:part name="parameters" element="tns:ObtieneBitacoraHistorialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneBitacoraReporteRequest">
+    <wsdl:part name="parameters" element="tns:ObtieneBitacoraReporteRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetJournalValidationRequest">
+    <wsdl:part name="parameters" element="tns:GetJournalValidationRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetJournalValidationResponse">
+    <wsdl:part name="parameters" element="tns:GetJournalValidationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ValidacionesSiacServiceContract">
+    <wsdl:operation name="ObtieneBitacora">
+      <wsdl:input wsaw:Action="ObtieneBitacora" name="ObtieneBitacoraRequest" message="tns:ObtieneBitacoraRequest" />
+      <wsdl:output wsaw:Action="http://abaseguros.com/ValidacionesSiacServiceContract/ObtieneBitacoraResponse" name="ObtieneBitacoraResponse" message="tns:ObtieneBitacoraResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneBitacoraHistorial">
+      <wsdl:input wsaw:Action="ObtieneBitacoraHistorial" name="ObtieneBitacoraRequest" message="tns:ObtieneBitacoraRequest" />
+      <wsdl:output wsaw:Action="http://abaseguros.com/ValidacionesSiacServiceContract/ObtieneBitacoraHistorialResponse" name="ObtieneBitacoraHistorialResponse" message="tns:ObtieneBitacoraHistorialResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneBitacoraCargaReporte">
+      <wsdl:input wsaw:Action="ObtieneBitacoraCargaReporte" name="ObtieneBitacoraReporteRequest" message="tns:ObtieneBitacoraReporteRequest" />
+      <wsdl:output wsaw:Action="http://abaseguros.com/ValidacionesSiacServiceContract/ObtieneBitacoraCargaReporteResponse" name="ObtieneBitacoraResponse" message="tns:ObtieneBitacoraResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJournalValidation">
+      <wsdl:input wsaw:Action="AccountingInformation" name="GetJournalValidationRequest" message="tns:GetJournalValidationRequest" />
+      <wsdl:output wsaw:Action="http://abaseguros.com/ValidacionesSiacServiceContract/GetJournalValidationResponse" name="GetJournalValidationResponse" message="tns:GetJournalValidationResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidacionSiacEndpoint" type="tns:ValidacionesSiacServiceContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtieneBitacora">
+      <soap:operation soapAction="ObtieneBitacora" style="document" />
+      <wsdl:input name="ObtieneBitacoraRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtieneBitacoraResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneBitacoraHistorial">
+      <soap:operation soapAction="ObtieneBitacoraHistorial" style="document" />
+      <wsdl:input name="ObtieneBitacoraRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtieneBitacoraHistorialResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneBitacoraCargaReporte">
+      <soap:operation soapAction="ObtieneBitacoraCargaReporte" style="document" />
+      <wsdl:input name="ObtieneBitacoraReporteRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtieneBitacoraResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJournalValidation">
+      <soap:operation soapAction="AccountingInformation" style="document" />
+      <wsdl:input name="GetJournalValidationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetJournalValidationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValidacionesSiacService">
+    <wsdl:port name="ValidacionSiacEndpoint" binding="tns:ValidacionSiacEndpoint">
+      <soap:address location="http://localhost:51773/ValidacionesSiacServiceReference.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
